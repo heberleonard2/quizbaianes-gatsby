@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react"
 import api from "../../services/api"
-import instagram from "../../img/instagram.svg"
+import instagram from "../images/instagram.svg"
 import { Link } from "gatsby"
+import bgScore from "../images/bg-score.png"
+import "bootstrap/dist/css/bootstrap.min.css"
 import "./styles.css"
+import "./all.css"
 
 export default function Perguntas({ history }) {
   const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -62,27 +65,68 @@ export default function Perguntas({ history }) {
   if (isEnd) {
     return (
       <>
-        <div className="bg-perguntas ">
-          <div className="container ">
-            <h1 className="title-score">Seu Score</h1>
-            <div className="box-score shadow-sm">
-              <h3 className="texto-score">Você acertou</h3>
-              <h2 className="score">{score}%</h2>
+        <div className="bg-1-quiz">
+          <div className="container">
+            <div className="col-lg-12">
+              <div className="d-flex  flex-md-row align-items-center    mb-3   ">
+                <h1 className="my-2 mr-auto logo-blue font-muli">
+                  <Link to="/" className="resetlink-blue">
+                    Quiz Baianês
+                  </Link>
+                </h1>
+                <Link style={{ color: "gray" }} className="btn font-muli">
+                  <i to="/" className=" fas fa-long-arrow-alt-left "></i> Voltar
+                  pro início
+                </Link>
+              </div>
             </div>
-            <h3 className="texto-score">{medidor}</h3>
-            <Link to="/">
-              {" "}
-              <button class="botao-score">Refazer</button>
-            </Link>
+            <div className="row d-flex align-items-center p-3">
+              <div className="col-lg-6">
+                <h1 className="title font-mont" style={{ color: "#3abbc4" }}>
+                  Nós te avaliamos
+                </h1>
+                <div className="resultado shadow-sm font-mont ">
+                  <span style={{ fontSize: "30px" }}>
+                    VOCÊ ACERTOU
+                    <br />
+                  </span>
+                  {score}%
+                </div>
+                <Link to="/" className="mybtn font-muli">
+                  <span className="icon" style={{ color: "white" }}>
+                    REFAZER
+                    <i
+                      style={{ paddingLeft: "5px" }}
+                      className=" fas fa-long-arrow-alt-right "
+                    ></i>
+                  </span>
+                </Link>
 
-            <div className="centro">
-              <h6 className="criador">Criado por Héber Leonard</h6>
-              <a
-                target="_blank"
-                href="https://www.instagram.com/heber_leonard/"
-              >
-                <img className="instagram" src={instagram} alt="instagram" />
-              </a>{" "}
+                <div className="d-flex  flex-md-row align-items-center justify-content-center mt-5 mb-5   ">
+                  <a
+                    className="btn  font-muli"
+                    href="https://www.instagram.com/heber_leonard/"
+                    target="_blank"
+                  >
+                    <span className="roxo">
+                      Criado por Héber Leonard{" "}
+                      <img
+                        src={instagram}
+                        class="fab fa-instagram"
+                        alt="instagram"
+                      ></img>
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <div className="col-lg-6 d-none d-lg-block ">
+                <img
+                  className="img-fluid"
+                  style={{ width: "95%", float: "right" }}
+                  src={bgScore}
+                  alt="background-score"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -91,69 +135,120 @@ export default function Perguntas({ history }) {
   } else {
     return (
       <>
-        <div className="bg-perguntas">
-          <div className="container flex-box2  animated">
-            <span className="questao-p">
-              {loading ? (
-                <h3 className="title-perguntas">
-                  <div className="loadingio-spinner-ellipsis-bv51xdi86p">
-                    <div className="ldio-b4c3kdybjnc">
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                    </div>
+        <div className="bg-1-quiz">
+          <div className="container">
+            {loading ? (
+              <div
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                <div className="loadingio-spinner-ellipsis-bv51xdi86p">
+                  <div className="ldio-b4c3kdybjnc">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
                   </div>
-                </h3>
-              ) : (
-                <>
-                  <Link to="/">
-                    <button className="voltarinicio"> Voltar pro inicio</button>
-                  </Link>
-                  <h3 className="nivel-perguntas">
-                    Questão {currentQuestion + 1}{" "}
-                    <span> /{response.length}</span>
-                  </h3>
-
-                  <h3 className="title-perguntas">
-                    Então fala: <br />
-                    <span className="bold-question">"{questions}"</span>
-                  </h3>
+                </div>
+              </div>
+            ) : (
+              <>
+                <div className="col-lg-12">
+                  <div className="d-flex  flex-md-row align-items-center    mb-3   ">
+                    <h1 className="my-2 mr-auto logo-blue font-muli">
+                      Questão {currentQuestion + 1}/{response.length}
+                    </h1>
+                    <Link
+                      to="/"
+                      style={{ color: "gray" }}
+                      className="btn font-muli"
+                    >
+                      <i className=" fas fa-long-arrow-alt-left "></i> Voltar
+                      pro início
+                    </Link>
+                  </div>
+                </div>
+                <div className="col-lg-12">
+                  <h2 className="subtitle font-muli">
+                    <span className="title-pergunta">
+                      Você sabe falar baianês?
+                    </span>
+                  </h2>
+                  <h1 className="title-quiz font-mont">
+                    {" "}
+                    Então fala: "{questions}"
+                  </h1>
+                </div>
+                <div className="row d-flex align-items-center p-3 font-muli">
                   {options2.map(options => (
-                    <p
-                      className={`${
-                        myAnswer === options
-                          ? "questions-perguntas-select shadow-sm "
-                          : "questions-perguntas shadow-sm"
-                      }`}
-                      onClick={() => checkAnswer(options)}
-                    >
-                      {options}
-                    </p>
+                    <div className="col-lg-6 ">
+                      <p
+                        className="question-perguntas shadow-sm"
+                        className={`${
+                          myAnswer === options
+                            ? "questions-perguntas-select shadow-sm "
+                            : "questions-perguntas shadow-sm"
+                        }`}
+                        onClick={() => checkAnswer(options)}
+                      >
+                        {options}
+                      </p>
+                    </div>
                   ))}
-                  {currentQuestion < response.length - 1 && (
-                    <button
-                      disabled={disabled}
-                      className="botao cada"
-                      onClick={nextQuestionHandler}
-                    >
-                      Continuar
-                    </button>
-                  )}
+                </div>
+                <div className="col-lg-12">
+                  <div className="d-flex align-items-center justify-content-center">
+                    {currentQuestion < response.length - 1 && (
+                      <button
+                        disabled={disabled}
+                        onClick={nextQuestionHandler}
+                        className="mybtn-quiz font-muli"
+                      >
+                        <span className="icon">
+                          CONTINUAR
+                          <i
+                            style={{ paddingLeft: "5px" }}
+                            className=" fas fa-long-arrow-alt-right "
+                          ></i>
+                        </span>
+                      </button>
+                    )}
 
-                  {currentQuestion === response.length - 1 && (
-                    <button
-                      disabled={disabled}
-                      onClick={finishQuestionHandler}
-                      className="botao cada"
+                    {currentQuestion === response.length - 1 && (
+                      <button
+                        disabled={disabled}
+                        onClick={finishQuestionHandler}
+                        className="mybtn-quiz font-muli"
+                      >
+                        <span className="icon">
+                          FINALIZAR
+                          <i
+                            style={{ paddingLeft: "5px" }}
+                            className=" fas fa-long-arrow-alt-right "
+                          ></i>
+                        </span>
+                      </button>
+                    )}
+                  </div>
+                </div>
+                <div className="container">
+                  <div className="d-flex  flex-md-row align-items-center justify-content-center mt-5 mb-5   ">
+                    <a
+                      className="btn  font-muli"
+                      href="https://www.instagram.com/heber_leonard/"
+                      target="_blank"
                     >
-                      Acabar o baba
-                    </button>
-                  )}
-                </>
-              )}
-            </span>
+                      <span className="roxo">
+                        Criado por Héber Leonard{" "}
+                        <i className="fab fa-instagram"></i>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </>
