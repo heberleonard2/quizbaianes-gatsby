@@ -24,6 +24,7 @@ export default () => (
         name="keywords"
         content="quiz, bahia, baianês, jogos da bahia, quiz baianês"
       />
+      <meta name="author" content="Héber Leonard" />
     </Helmet>
     <div className="bg-1 ">
       <div className="container">
