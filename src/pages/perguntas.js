@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { Helmet } from "react-helmet"
 import api from "../../services/api"
 import instagram from "../images/instagram.svg"
 import { Link } from "gatsby"
@@ -135,6 +136,16 @@ export default function Perguntas({ history }) {
   } else {
     return (
       <>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Quiz Baianês - Perguntas</title>
+          <meta
+            name="description"
+            content="Descubra o quanto de baianes você consegue falar com o nosso quiz"
+          />
+
+          <meta name="author" content="Héber Leonard" />
+        </Helmet>
         <div className="bg-1-quiz">
           <div className="container">
             {loading ? (

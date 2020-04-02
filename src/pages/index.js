@@ -1,5 +1,7 @@
 import React from "react"
+import { Helmet } from "react-helmet"
 import { Link } from "gatsby"
+
 import "bootstrap/dist/css/bootstrap.min.css"
 import quiz from "../images/imagem1.png"
 import celular from "../images/celular.png"
@@ -11,6 +13,18 @@ import "./all.css"
 
 export default () => (
   <>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Quiz Baianês</title>
+      <meta
+        name="description"
+        content="Descubra o quanto de baianes você consegue falar com o nosso quiz"
+      />
+      <meta
+        name="keywords"
+        content="quiz, bahia, baianês, jogos da bahia, quiz baianês"
+      />
+    </Helmet>
     <div className="bg-1 ">
       <div className="container">
         <div className="col-lg-12">
