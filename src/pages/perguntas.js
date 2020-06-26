@@ -252,8 +252,7 @@ export default function Perguntas({ history }) {
                       target="_blank"
                     >
                       <span className="roxo">
-                        Criado por Héber Leonard{" "}
-                        <i className="fab fa-instagram"></i>
+                        GitHub <i class="fab fa-github"></i>
                       </span>
                     </a>
                   </div>
