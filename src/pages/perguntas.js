@@ -248,7 +248,7 @@ export default function Perguntas({ history }) {
                   <div className="d-flex  flex-md-row align-items-center justify-content-center mt-5 mb-5   ">
                     <a
                       className="btn  font-muli"
-                      href="https://www.instagram.com/heber_leonard/"
+                      href="https://github.com/heberleonard2/quizbaianes-gatsby/"
                       target="_blank"
                     >
                       <span className="roxo">
